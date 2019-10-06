@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <!-- LINKING BOOTSTRAP  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="navbar">
+        <input type="text" id="search" placeholder="Search...">
+        <button class="btn-outline-secondary" id="search-btn">Search</button>
+        <div id="nav-right">
+            <a href="" style="text-decoration: none">HomePage</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="text-decoration: none">Orders</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn-danger">SignOut</button>
+        </div>
+    </div>
+    <div class="filter-bar">
+        <h4>PRICE RANGE</h4>
+        Min Range  &nbsp;:₹
+        <input class="price-input" type="number"><br><br>
+        Max Range :₹
+        <input class="price-input" type="number"><br><br>
+        <button class="btn btn-success">Filter</button>
+    </div>
+    <div class="container">
+        <div class="card" style="width: 18rem;">
+            <img src="./images/mobile.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text">Mobiles</h5>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="./images/camera.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text">Cameras</h5>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="./images/laptop.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text">Laptops</h5>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="./images/pendrive.jpg" height=160px; class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text">Pendrives</h5>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="./images/earphones.jpg" height=160px class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text">Earphones</h5>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img src="./images/gaming.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-text">Gaming Consoles</h5>
+            </div>
+        </div>    
+    </div>
+</body>
+</html>

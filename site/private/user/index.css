@@ -1,0 +1,82 @@
+body,html{
+    margin:0px;
+}
+
+.price-input{
+    width:50px;
+}
+
+.navbar{
+    padding-top:7px;
+    background-color: honeydew;
+    height:57px;
+}
+
+#search{
+    margin-left:350px;
+    border-radius: 25px;
+    border: 2px solid gray;
+    padding: 20px; 
+    width: 500px;
+    height: 15px;    
+}
+
+#search-btn{
+    margin-right:100px;
+}
+
+#nav-right{
+    padding-top:3px;
+    float: right;
+}
+
+.btn-outline-secondary{
+    background: transparent;
+    border: 2px solid #0099CC;
+    border-radius: 6px;
+    height:35px;
+}
+
+.btn-outline-secondary:hover{
+    background-color: #0099CC;
+    color:white;
+}
+
+.btn-danger{
+    background: rgba(212, 18, 18, 0.815);
+    border: 2px solid rgba(158, 18, 18, 0.815);
+    border-radius: 6px;
+    height:35px;
+    color:white;
+}
+
+.filter-bar{
+    float:left;
+    height:91.3vh;
+    width:200px;
+    background-color:rgba(24, 22, 29, 0.87);
+    color:white;
+}
+
+.container{
+    padding-top:25px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+.card{
+    margin-bottom:25px;
+    width:450px;
+    height:230px;
+    border:1px solid rgba(163, 162, 165, 0.87);
+    border-radius: 3%;
+    /* position: absolute; */
+    /* left:600px; */
+    /* top:250px; */
+}
+/* .card:hover{
+    transform: 
+} */
+
