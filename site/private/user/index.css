@@ -3,7 +3,7 @@ body,html{
 }
 
 .price-input{
-    width:50px;
+    width:70px;
 }
 
 .navbar{
@@ -13,7 +13,7 @@ body,html{
 }
 
 #search{
-    margin-left:350px;
+    margin-left:300px;
     border-radius: 25px;
     border: 2px solid gray;
     padding: 20px; 
@@ -40,14 +40,20 @@ body,html{
 .btn-outline-secondary:hover{
     background-color: #0099CC;
     color:white;
+    cursor: pointer;
+    border: 2px solid #0099CC;
 }
 
 .btn-danger{
-    background: rgba(212, 18, 18, 0.815);
-    border: 2px solid rgba(158, 18, 18, 0.815);
+    background: rgba(255, 9, 9, 0.815);
+    border: 2px solid rgba(255, 9, 9, 0.815);
     border-radius: 6px;
     height:35px;
     color:white;
+}
+
+.btn-danger:hover{
+    cursor: pointer;
 }
 
 .filter-bar{
@@ -59,6 +65,7 @@ body,html{
 }
 
 .container{
+    position: relative;
     padding-top:25px;
     display:flex;
     flex-wrap: wrap;
@@ -80,3 +87,16 @@ body,html{
     transform: 
 } */
 
+#cart-container{
+    display:none;
+    background-color:#005EA6;
+    border:2px solid black;
+    padding:20px;
+    height:500px;
+    width:450px;
+    color:white;
+    position: absolute;
+    top:60px;
+    right:15px;
+    z-index:15;   
+}

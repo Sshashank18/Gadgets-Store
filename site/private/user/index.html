@@ -15,11 +15,37 @@
 </head>
 <body>
     <div class="navbar">
+        <img src="images/logo.png" width=50px>
         <input type="text" id="search" placeholder="Search...">
         <button class="btn-outline-secondary" id="search-btn">Search</button>
         <div id="nav-right">
             <a href="" style="text-decoration: none">HomePage</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="" style="text-decoration: none">Orders</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="text-decoration: none">Cart</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div id="cart-container">
+                <h3>My Cart</h3>
+                <table class="table table-dark">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>hii</td>
+                            <td>2</td>
+                            <td>500</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3>TOTAL:</h3>
+                <div id="total">
+
+                </div><br>
+                <button class="btn-danger">Checkout</button>
+            </div>
             <button class="btn-danger">SignOut</button>
         </div>
     </div>

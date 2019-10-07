@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Item</title>
+    <!-- LINKING BOOTSTRAP  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    
+    <link rel="stylesheet" href="additem.css">
+</head>
+<body>
+    <div class="navbar">
+        <img src="images/logo.png" width=50px>
+        Hii Test
+        <div id="nav-right">
+            <a href="" style="text-decoration: none">HomePage</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" style="text-decoration: none">My Products</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn-danger">SignOut</button>
+        </div>
+    </div>
+    <div class="container">
+        <h3>NEW ITEM</h3>
+        <div class="item">
+            <h5><u>Item Name</u></h5>
+            <input class="input" placeholder="Enter Item Name"><br><br>
+            <h5><u>Price</u></h5>
+            <input class="input" placeholder="Enter Item Price"><br><br>
+            <h5><u>Item Image</u></h5>
+            <input type="file">
+            <br><br>
+            <div class="btn-group dropright">
+                <button type="button" class="btn btn-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="categoryButton">
+                    Select Category &#x27A4;
+                </button>
+                <div class="dropdown-menu">
+                    <button type="button" class="dropdown-item" id="mobileButton">Mobiles</button>
+                    <button type="button" class="dropdown-item" id="camerasButton">Cameras</button>
+                    <button type="button" class="dropdown-item" id="pendrivesButton">Pendrives</button>
+                    <button type="button" class="dropdown-item" id="laptopsButton">Laptops</button>
+                    <button type="button" class="dropdown-item" id="earphonesButton">Earphones</button>
+                    <button type="button" class="dropdown-item" id="consolesButton">Gaming Consoles</button>
+                </div>
+            </div>
+            
+            <div id="companiesConsoles" class="filter" hidden>
+                <h3 class="text-dark">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyC1" name="productSubtype" value="sony">
+                    <label for="companyC1">Sony</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyC2" name="productSubtype" value="microsoft">
+                    <label for="companyC2">Microsoft</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyC3" name="productSubtype" value="nintendo">
+                    <label for="companyC3">Nintendo</label>
+                </div>
+            </div>
+            <div id="companiesLaptops" class="filter" hidden>
+                <h3 class="text-dark">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyL1" name="productSubtype" value="hp">
+                    <label for="companyL1">HP</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyL2" name="productSubtype" value="dell">
+                    <label for="companyL2">Dell</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyL3" name="productSubtype" value="asus">
+                    <label for="companyL3">Asus</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyL4" name="productSubtype" value="lenovo">
+                    <label for="companyL4">Lenovo</label>
+                </div>
+            </div>
+            <div id="companiesEarphones" class="filter" hidden>
+                <h3 class="text-dark">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyE1" name="productSubtype" value="boat">
+                    <label for="companyE1">Boat</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyE2" name="productSubtype" value="sony">
+                    <label for="companyE2">Sony</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyE3" name="productSubtype" value="jbl">
+                    <label for="companyE3">JBL</label>
+                </div>
+            </div>
+            <div id="companiesCameras" class="filter" hidden>
+                <h3 class="text-dark">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyCA1" name="productSubtype" value="canon">
+                    <label for="companyCA1">Canon</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyCA2" name="productSubtype" value="nikon">
+                    <label for="companyCA2">Nikon</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyCA3" name="productSubtype" value="sony">
+                    <label for="companyCA3">Sony</label>
+                </div>
+            </div>
+            <div id="companiesPendrives" class="filter" hidden>
+                <h3 class="text-dark">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyP1" name="productSubtype" value="sandisk">
+                    <label for="companyP1">Sandisk</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyP2" name="productSubtype" value="sony">
+                    <label for="companyP2">Sony</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyP3" name="productSubtype" value="hp">
+                    <label for="companyP3">HP</label>
+                </div>
+            </div>
+            
+            <div id="companiesMobiles" class="filter" hidden>
+                <h3 class="text-dark">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyM1" name="productSubtype" value="iphone">
+                    <label for="companyM1">Iphone</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyM2" name="productSubtype" value="samsung">
+                    <label for="companyM2">Samsung</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyM3" name="productSubtype" value="oneplus">
+                    <label for="companyM3">OnePlus</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyM4" name="productSubtype" value="redmi">
+                    <label for="companyM4">Redmi</label>
+                </div>
+            </div>
+            
+            <br><br><br><br>
+            <button class="btn btn-success">Post Item for Sale</button>
+        </div>
+    </div>
+</body>
+</html>
