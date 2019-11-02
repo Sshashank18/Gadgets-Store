@@ -1,0 +1,85 @@
+body{
+    margin:0;
+}
+
+h3{
+    font-family:Raleway;
+}
+
+.navbar{
+    padding-top:7px;
+    background-color: honeydew;
+    height:57px;
+    padding-left:10px;
+    padding-right:10px;
+}
+
+#nav-right{
+    padding-top:3px;
+    float: right;
+}
+
+.container{
+    display:grid;
+    margin-top:20px;
+    grid-template-columns: 240px 350px 250px 300px;
+    grid-template-rows: 300px 270px;
+}
+
+.Mobiles{
+    grid-column-start:1;
+    grid-column-end:2;
+    grid-row-start: 1;
+    grid-row-end:3; 
+    margin-right:7px;
+    padding:7px;
+    padding-left:10px;
+}
+
+.Camera{
+    grid-column-start: 2;
+    grid-column-end:3;
+    grid-row-start: 1;
+    grid-row-end:2; 
+    margin-right:10px;
+    margin-bottom:10px;
+    padding:10px;
+}
+
+.Laptops{
+    grid-column-start: 2;
+    grid-column-end:3;
+    grid-row-start: 2;
+    grid-row-end:3; 
+    margin-right:10px;
+    padding:10px;
+}
+
+.Pendrives{
+    grid-column-start: 3;
+    grid-column-end:4;
+    grid-row-start: 1;
+    grid-row-end:2; 
+    margin-right:10px;
+    margin-bottom:10px;
+    padding:5px;
+}
+
+.Earphones{
+    grid-column-start: 4;
+    grid-column-end:5;
+    grid-row-start: 1;
+    grid-row-end:2; 
+    margin-right:10px;
+    margin-bottom:10px;
+    padding:5px;
+}
+
+.Gamingconsoles{
+    grid-column-start: 3;
+    grid-column-end:5;
+    grid-row-start: 2;
+    grid-row-end:3; 
+    margin-right:10px;
+    padding:10px;
+}

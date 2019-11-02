@@ -15,29 +15,6 @@ body,html{
     float: right;
 }
 
-.btn-danger{
-    background: rgba(255, 9, 9, 0.815);
-    border: 2px solid rgba(255, 9, 9, 0.815);
-    border-radius: 6px;
-    height:35px;
-    color:white;
-}
-
-.btn-success{
-    background: rgb(13, 190, 13);
-    border: 2px solid green;
-    border-radius: 6px;
-    height:35px;
-    color:white;
-}
-
-.btn-success:hover{
-    cursor: pointer;
-}
-
-.btn-danger:hover{
-    cursor: pointer;
-}
 
 .container{
     padding:50px;
@@ -49,7 +26,7 @@ body,html{
     background-color: rgb(27, 27, 27);
     color:bisque;
     width:500px;
-    height:60vh;
+    height:80vh;
     padding:30px 50px 50px 50px;
     border-radius: 5%;
 }
