@@ -44,18 +44,6 @@ body,html{
     border: 2px solid #0099CC;
 }
 
-.btn-danger{
-    background: rgba(255, 9, 9, 0.815);
-    border: 2px solid rgba(255, 9, 9, 0.815);
-    border-radius: 6px;
-    height:35px;
-    color:white;
-}
-
-.btn-danger:hover{
-    cursor: pointer;
-}
-
 .filter-bar{
     float:left;
     height:91.3vh;

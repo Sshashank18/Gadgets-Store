@@ -84,10 +84,10 @@ const Products=database.define("products",{
         type:Sequelize.STRING,
         allowNull:false
     },
-    Type:{
+    productType:{
         type:Sequelize.STRING,
     },
-    Subtype:{
+    productSubtype:{
         type:Sequelize.STRING,
     },
     Price:{

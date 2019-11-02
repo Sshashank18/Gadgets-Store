@@ -22,6 +22,7 @@
             <a href="" style="text-decoration: none">HomePage</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="" style="text-decoration: none">Orders</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="" style="text-decoration: none">Cart</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- CART -->
             <div id="cart-container">
                 <h3>My Cart</h3>
                 <table class="table table-dark">
@@ -32,24 +33,135 @@
                             <th scope="col">Price</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>hii</td>
-                            <td>2</td>
-                            <td>500</td>
-                        </tr>
+                    <tbody id="cartTable">
+
                     </tbody>
                 </table>
                 <h3>TOTAL:</h3>
                 <div id="total">
 
                 </div><br>
-                <button class="btn-danger">Checkout</button>
+                <button class="btn btn-danger">Checkout</button>
             </div>
-            <button class="btn-danger">SignOut</button>
+            <button class="btn btn-danger">SignOut</button>
         </div>
     </div>
+
+    
     <div class="filter-bar">
+        <div class="btn-group dropright">
+            <button type="button" class="btn btn-secondary dropdown-toggle" id="categoryButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+            </button>
+            <div class="dropdown-menu">
+                <button type="button" class="dropdown-item" id="mobilesd">Mobiles</button>
+                <button type="button" class="dropdown-item" id="laptopsd">Laptops</button>
+                <button type="button" class="dropdown-item" id="camerasd">Cameras</button>
+                <button type="button" class="dropdown-item" id="pendrivesd">Pendrives</button>
+                <button type="button" class="dropdown-item" id="earphonesd">Earphones</button>
+            </div>
+        </div>
+
+        <div id="companiesConsoles" class="filter" hidden>
+                <h3 class="text-light">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyC1" name="productSubtype" value="sony">
+                    <label for="companyC1">Sony</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyC2" name="productSubtype" value="microsoft">
+                    <label for="companyC2">Microsoft</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyC3" name="productSubtype" value="nintendo">
+                    <label for="companyC3">Nintendo</label>
+                </div>
+            </div>
+            <div id="companiesLaptops" class="filter" hidden>
+                <h3 class="text-light">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyL1" name="productSubtype" value="hp">
+                    <label for="companyL1">HP</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyL2" name="productSubtype" value="dell">
+                    <label for="companyL2">Dell</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyL3" name="productSubtype" value="asus">
+                    <label for="companyL3">Asus</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyL4" name="productSubtype" value="lenovo">
+                    <label for="companyL4">Lenovo</label>
+                </div>
+            </div>
+            <div id="companiesEarphones" class="filter" hidden>
+                <h3 class="text-light">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyE1" name="productSubtype" value="boat">
+                    <label for="companyE1">Boat</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyE2" name="productSubtype" value="sony">
+                    <label for="companyE2">Sony</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyE3" name="productSubtype" value="jbl">
+                    <label for="companyE3">JBL</label>
+                </div>
+            </div>
+            <div id="companiesCameras" class="filter" hidden>
+                <h3 class="text-light">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyCA1" name="productSubtype" value="canon">
+                    <label for="companyCA1">Canon</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyCA2" name="productSubtype" value="nikon">
+                    <label for="companyCA2">Nikon</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyCA3" name="productSubtype" value="sony">
+                    <label for="companyCA3">Sony</label>
+                </div>
+            </div>
+            <div id="companiesPendrives" class="filter" hidden>
+                <h3 class="text-light">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyP1" name="productSubtype" value="sandisk">
+                    <label for="companyP1">Sandisk</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyP2" name="productSubtype" value="sony">
+                    <label for="companyP2">Sony</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyP3" name="productSubtype" value="hp">
+                    <label for="companyP3">HP</label>
+                </div>
+            </div>
+            
+            <div id="companiesMobiles" class="filter" hidden>
+                <h3 class="text-light">COMPANIES</h3>
+                <div>
+                    <input type="radio" id="companyM1" name="productSubtype" value="iphone">
+                    <label for="companyM1">Iphone</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyM2" name="productSubtype" value="samsung">
+                    <label for="companyM2">Samsung</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyM3" name="productSubtype" value="oneplus">
+                    <label for="companyM3">OnePlus</label>
+                </div>
+                <div>
+                    <input type="radio" id="companyM4" name="productSubtype" value="redmi">
+                    <label for="companyM4">Redmi</label>
+                </div>
+            </div>
+
         <h4>PRICE RANGE</h4>
         Min Range  &nbsp;:₹
         <input class="price-input" type="number"><br><br>
@@ -57,43 +169,47 @@
         <input class="price-input" type="number"><br><br>
         <button class="btn btn-success">Filter</button>
     </div>
-    <div class="container">
-        <div class="card" style="width: 18rem;">
+
+
+    <div class="container" id="product-box">
+        <div class="card" id="mobiles"style="width: 18rem;">
             <img src="./images/mobile.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text">Mobiles</h5>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
+        <div class="card" id="cameras"style="width: 18rem;">
             <img src="./images/camera.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text">Cameras</h5>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
+        <div class="card"id="laptops" style="width: 18rem;">
             <img src="./images/laptop.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text">Laptops</h5>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
+        <div class="card"id="pendrives" style="width: 18rem;">
             <img src="./images/pendrive.jpg" height=160px; class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text">Pendrives</h5>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
+        <div class="card"id="earphones" style="width: 18rem;">
             <img src="./images/earphones.jpg" height=160px class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text">Earphones</h5>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
+        <div class="card"id="gamingconsoles" style="width: 18rem;">
             <img src="./images/gaming.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-text">Gaming Consoles</h5>
             </div>
         </div>    
     </div>
+
+    <script src="index.js"></script>
 </body>
 </html>
