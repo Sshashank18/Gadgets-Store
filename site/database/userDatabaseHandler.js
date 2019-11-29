@@ -1,11 +1,27 @@
 const {Users,Products,Vendors,Orders,Cartitems}=require('./database');
 const Op=require('sequelize').Op;
+const bcrypt = require("bcrypt");
+
+
+const addUser = (name, address, email, mobile, password) => {
+    bcrypt.hash(password, 10, function(err, hash) {
+        
+        Users.create({
+            name,
+            address,
+            email,
+            mobile,
+            password: hash
+        });
+    });   
+}
 
 const productsParser=(products)=>{
     let productsData=[];
     products.map(product=>productsData.push(product.get()))
     return productsData;
 }
+
 
 const getProductHomepage=(productType)=>{
     return Products.findAll({
@@ -37,7 +53,7 @@ const addCartItem=(userId,productId)=>{
     }).then(cartItem=>{
         if(cartItem){
             return cartItem.update({
-                quantity:cartItem.quantity+1
+                quantity:parseInt(cartItem.quantity) + 1
             },
             {
                 where:{
@@ -73,4 +89,95 @@ const deleteCartItems=(productId,userId)=>{
             userId
         }
     });
+}
+
+const getOrderDetails=(userId)=>{
+    return CartItems.findAll({
+        include:[
+            {
+                model:Products,
+                attributes:['Name','Price'],
+                include:{
+                    model:Vendors,attributes:['CompanyName',"id"]
+                }
+            },
+            {
+                model:Users,
+                attributes:["Name"]
+            }
+        ],
+        attributes:["id","quantity","userId","productId"],
+        where:{
+            userId
+        }
+    })
+    .then(products=>productParser(products));
+}
+
+const addToOrder=(time,quantity,method,userId,productId,vendorId)=>{
+    return Orders.create({
+        time,
+        quantity,
+        method,
+        userId,
+        productId,
+        vendorId
+    });
+}
+
+const emptyCartList=(userId)=>{
+    return Cartitems.destroy({
+        where:{
+            userId
+        }
+    })
+}
+
+const getOrders=(userId)=>{
+    return Orders.findAll({
+        where:{
+            userId
+        },
+        attributes:["quantity","time","method","status"],
+        include:[
+            {
+                model:Vendors,attributes:["CompanyName","CompanyEmail","CompanyMobile"]
+            },
+            {
+                model:Products,attributes:["id","Name","Price","image"]
+            },
+            {
+                model:Users,attributes:["Name"]
+            }
+        ]
+    })
+    .then(orders=>productParser(orders));
+}
+
+const checkEmail=(email)=>{
+    return Users.findOne({
+        where:{
+            email
+        }
+    }).then(user=>{
+        if(user)
+            return "Exist";
+        else    
+            return "Nope";
+    });
+}
+
+module.exports={
+    addUser,
+    getProductsHomepage,
+    getProductsFiltered,
+    getProductDetails,
+    addCartItem,
+    getCartItems,
+    deleteCartItem,
+    getOrderDetails,
+    addToOrder,
+    emptyCartList,
+    getOrders,
+    checkEmail
 }

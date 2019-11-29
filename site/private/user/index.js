@@ -51,6 +51,7 @@ earphones.click(()=>{
     categoryButton.text("Earphones");
 });
 
+
 const render=(products)=>{
     productbox.empty();
     products.map(product=>{
