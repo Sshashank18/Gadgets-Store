@@ -1,0 +1,16 @@
+body {
+    background-image: url(loginBackground.jpg);
+    background-size: cover;
+}
+
+
+.form {
+    width: 300px;
+    margin-left: 77.5%;
+    margin-top: 10%;
+    padding: 10px;
+}
+
+.hide {
+    display: none;
+}

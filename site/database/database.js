@@ -100,6 +100,17 @@ const Products=database.define("products",{
     }
 });
 
+const Reviews = database.define("reviews", {
+    review: {
+        type: Sequelize.TEXT,
+        allowNull: false 
+    },
+    stars: {
+        type: Sequelize.INTEGER,
+        allowNull: false 
+    }
+});
+
 Cartitems.belongsTo(Users);
 Cartitems.belongsTo(Products);
 
@@ -110,11 +121,17 @@ Orders.belongsTo(Vendors);
 Products.belongsTo(Vendors);
 Vendors.hasMany(Products);
 
+Reviews.belongsTo(Products);
+Products.hasMany(Reviews);
+Reviews.belongsTo(Users);
+Users.hasMany(Reviews);
+
 module.exports={
     database,
     Users,
     Vendors,
     Products,
     Cartitems,
-    Orders
+    Orders,
+    Reviews
 }
