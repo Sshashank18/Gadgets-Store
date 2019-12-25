@@ -2,19 +2,19 @@ const {Users,Products,Vendors,Orders,Cartitems}=require('./database');
 const bcrypt=require('bcrypt');
 
 const productParser=(products)=>{                       //parser means to break into small parts
-    let productsData=[];
-    products.map(product => productData.push(product.get())); //See what is product.get()
+    let productData=[];
+    products.map(product => productData.push(product.get())); // product.get() is all the data present in product object
     return productData;
 }
 
-const addVendor=(CompanyName,CompanyAddress,CompanyMobile,CompanyEmail,password)=>{
-    bcrypt.hash(password,10,function(err,hash){
+const addVendor=(CompanyName,CompanyAddress,CompanyEmail,CompanyPhone,Password)=>{
+    bcrypt.hash(Password,10,function(err,hash){
         Vendors.create({
             CompanyName,
             CompanyAddress,
-            CompanyMobile,
+            CompanyPhone,
             CompanyEmail,
-            password:hash
+            Password:hash
         });
     });
 }
@@ -99,13 +99,14 @@ const getUsername=(vendorId)=>{
     .then(vendor=>vendor);
 }
 
+
 module.exports={
     addVendor,
     addProduct,
     getProducts,
     deleteProduct,
     getOrders,
-    dispatchOrder,
+    dispatchedOrder,
     declineOrder,
     getUsername
 }

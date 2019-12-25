@@ -3,14 +3,14 @@ const Op=require('sequelize').Op;
 const bcrypt = require("bcrypt");
 
 
-const addUser = (name, address, email, mobile, password) => {
+const addUser = (Name, Address, Email, Mobile, password) => {
     bcrypt.hash(password, 10, function(err, hash) {
         
         Users.create({
-            name,
-            address,
-            email,
-            mobile,
+            Name,
+            Address,
+            Email,
+            Mobile,
             password: hash
         });
     });   
@@ -23,12 +23,12 @@ const productsParser=(products)=>{
 }
 
 
-const getProductHomepage=(productType)=>{
+const getProductsHomepage=(productType)=>{
     return Products.findAll({
         where:{
             productType
         }
-    }).then(products => productParser(products));
+    }).then(products =>products);
 }
 
 const getProductsFiltered=(productType,maxPrice,minPrice)=>{
@@ -42,6 +42,24 @@ const getProductsFiltered=(productType,maxPrice,minPrice)=>{
             }
         }
     }).then(products=>productsParser(products)); //try this without using product parser
+}
+
+const getProductDetails = (productId) => {
+    return Products.findOne({
+        include: [
+                    {
+                        model:Reviews,
+                        attributes: ["userId", "stars", "reviews"],
+                        include: {model: Users, attributes: ["Name"]}   
+                    },
+                    {model: Vendors, attributes: ["CompanyName"]}
+                ],
+        attributes: ["image", "Name", "Price"],
+        where: {
+            id: productId
+        }
+    })
+     .then(product => product);
 }
 
 const addCartItem=(userId,productId)=>{
@@ -82,7 +100,7 @@ const getCartItems=(userId)=>{
     }).then(cartItems=>productsParser(cartItems));
 }
 
-const deleteCartItems=(productId,userId)=>{
+const deleteCartItem=(productId,userId)=>{
     CartItems.destroy({
         where: {
             productId,
@@ -171,7 +189,6 @@ module.exports={
     addUser,
     getProductsHomepage,
     getProductsFiltered,
-    getProductDetails,
     addCartItem,
     getCartItems,
     deleteCartItem,
@@ -179,5 +196,6 @@ module.exports={
     addToOrder,
     emptyCartList,
     getOrders,
-    checkEmail
+    checkEmail,
+    getProductDetails
 }

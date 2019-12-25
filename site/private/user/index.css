@@ -12,17 +12,8 @@ body,html{
     height:57px;
 }
 
-#search{
-    margin-left:300px;
-    border-radius: 25px;
-    border: 2px solid gray;
-    padding: 20px; 
-    width: 500px;
-    height: 15px;    
-}
-
-#search-btn{
-    margin-right:100px;
+#searchField{
+    padding-right:200px;
 }
 
 #nav-right{

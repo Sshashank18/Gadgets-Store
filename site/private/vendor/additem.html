@@ -19,20 +19,20 @@
         <img src="images/logo.png" width=50px>
         Hii Test
         <div id="nav-right">
-            <a href="" style="text-decoration: none">HomePage</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="" style="text-decoration: none">My Products</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="./index.html" style="text-decoration: none">HomePage</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="./myproducts.html" style="text-decoration: none">My Products</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="btn-danger">SignOut</button>
         </div>
     </div>
     <div class="container">
         <h3>NEW ITEM</h3>
-        <div class="item">
+        <form class="item" id="newitemForm" action="/vendor/addProduct" method="POST" enctype="multipart/form-data">
             <h5><u>Item Name</u></h5>
-            <input class="input" placeholder="Enter Item Name"><br><br>
+            <input  placeholder="Enter Item Name" id="itemName" name="itemName"><br><br>
             <h5><u>Price</u></h5>
-            <input class="input" placeholder="Enter Item Price"><br><br>
+            <input  placeholder="Enter Item Price" id="itemPrice" name="itemPrice"><br><br>
             <h5><u>Item Image</u></h5>
-            <input type="file">
+            <input type="file" accept="image/" name="itemPhoto" required>
             <br><br>
             <div class="btn-group dropright">
                 <button type="button" class="btn btn-warning" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="categoryButton">
@@ -149,8 +149,9 @@
             </div>
             
             <br><br><br><br>
-            <button class="btn btn-success">Post Item for Sale</button>
-        </div>
+            <button type="submit" class="btn btn-success">Post Item for Sale</button>
+        </form>>
     </div>
+    <script src="additem.js"></script>
 </body>
 </html>

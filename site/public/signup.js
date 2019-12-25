@@ -26,6 +26,7 @@ vendorSignupButton.addEventListener("click", () => {
     userSignupButton.classList.remove("btn-primary");
 });
 
+
 $('#userSignupFormButton').click(event=>{
     event.preventDefault();
 

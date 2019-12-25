@@ -2,7 +2,8 @@ const Sequelize=require("sequelize");
 
 const database=new Sequelize("Gadgets-Store","gadgets","123456",{
     host:"localhost",
-    dialect:"mysql2",
+    dialect:"sqlite",
+    storage:'Gadgets.db',
     logging:false
 });
 
@@ -19,11 +20,11 @@ const Users=database.define("users",{
         unique:true,
         type:Sequelize.STRING
     },
-    Phone:{
+    Mobile:{
         type:Sequelize.INTEGER,
         allowNull:false
     },
-    Password:{
+    password:{
         type:Sequelize.STRING,
         allowNull:false
     }
@@ -101,7 +102,7 @@ const Products=database.define("products",{
 });
 
 const Reviews = database.define("reviews", {
-    review: {
+    reviews: {
         type: Sequelize.TEXT,
         allowNull: false 
     },

@@ -19,20 +19,20 @@
         <form id="userForm" method="POST" action="/user/signup">
             <div class="form-group mt-2">
                 <label for="userName">Name</label>
-                <input type="text" class="form-control" id="userName" name="name" placeholder="Enter Name" required>
+                <input type="text" class="form-control" id="userName" name="Name" placeholder="Enter Name" required>
             </div>
             <div class="form-group mt-2">
                 <label for="userAddress">Address</label>
-                <input type="text" class="form-control" id="userAddress" name="address" placeholder="Enter Address" required>
+                <input type="text" class="form-control" id="userAddress" name="Address" placeholder="Enter Address" required>
             </div>
             <div class="form-group mt-2">
                 <label for="userEmail">Email address</label>
-                <input type="text" class="form-control" id="userEmail" name="email" placeholder="Enter Email" required>
+                <input type="text" class="form-control" id="userEmail" name="Email" placeholder="Enter Email" required>
                 <small id="userSignupError" class="form-text text-danger" hidden>Email Already Exist</small>
             </div>
             <div class="form-group mt-2">
                 <label for="userMobile">Mobile</label>
-                <input type="number" class="form-control" id="userMobile" name="mobile" placeholder="Enter Mobile Number" required>
+                <input type="number" class="form-control" id="userMobile" name="Mobile" placeholder="Enter Mobile Number" required>
             </div>
             <div class="form-group">
                 <label for="userPassword">Password</label>
@@ -44,25 +44,25 @@
         <form id="vendorForm" class="hide" method="POST" action="/vendor/signup">
             <div class="form-group mt-2 ">
                 <label for="vendorName">Company Name</label>
-                <input type="text" class="form-control" id="vendorName" name="companyName" placeholder="Enter Name" required>
+                <input type="text" class="form-control" id="vendorName" name="CompanyName" placeholder="Enter Name" required>
             </div>
             <div class="form-group mt-2">
                 <label for="vendorAddress">Company Address</label>
-                <input type="text" class="form-control" id="vendorAddress" name="companyAddress" placeholder="Enter Address" required>
+                <input type="text" class="form-control" id="vendorAddress" name="CompanyAddress" placeholder="Enter Address" required>
             </div>
             <div class="form-group mt-2">
                 <label for="vendorEmail">Company Email address</label>
-                <input type="text" class="form-control" id="vendorEmail" name="companyEmail" placeholder="Enter Email" required>
+                <input type="text" class="form-control" id="vendorEmail" name="CompanyEmail" placeholder="Enter Email" required>
             </div>
             <div class="form-group mt-2">
                 <label for="vendorMobile">Company Mobile</label>
-                <input type="number" class="form-control" id="vendorMobile" name="companyMobile" placeholder="Enter Mobile Number" required>
+                <input type="number" class="form-control" id="vendorMobile" name="CompanyPhone" placeholder="Enter Mobile Number" required>
             </div>
             <div class="form-group">
                 <label for="userPassword">Password</label>
-                <input type="password" class="form-control" id="vendorPassword" name="password" placeholder="Password" required>
+                <input type="password" class="form-control" id="vendorPassword" name="Password" placeholder="Password" required>
             </div>
-            <button type="submit" class="btn btn-primary">Sign-up</button>
+            <button type="submit" class="btn btn-primary" id="vendorSignupFormButton">Sign-up</button>
         </form>
 
         <h4>Have An Existing Account?? Login <a href="/login.html">Here...</a></h4>

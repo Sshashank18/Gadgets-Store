@@ -28,12 +28,12 @@ $.get('/user/getProductDetails/'+id,(productDetails)=>{
     productBox.append(
         `
         <div class="col-4">
-        <img src="/products/${productDetails.image}" class="orderImage">
+            <img src="/products/${productDetails.image}" class="orderImage" width="350px" height="250px" >
         </div>
         <div class="col-4">
-            <div><u>Name: </u><h3>${productDetails.name}</h3></div>
-            <div><u>Price: </u><h4>${productDetails.price}</h4></div>
-            <div><u>Vendor: </u><h4>${productDetails.vendor.companyName}</h4></div>
+            <div><u>Name: </u><h3>${productDetails.Name}</h3></div>
+            <div><u>Price: </u><h4>${productDetails.Price}</h4></div>
+            <div><u>Vendor: </u><h4>${productDetails.vendor.CompanyName}</h4></div>
     
             <button type="button" class="btn btn-danger" id="addToCart">Add To Cart</button>
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter">

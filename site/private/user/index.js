@@ -56,10 +56,10 @@ const render=(products)=>{
     productbox.empty();
     products.map(product=>{
         productbox.append(`
-            <div class="card" style="width: 18rem;">
-                <img src="./images/${product.image}" class="card-img-top" alt="...">
+            <div class="card" style="width: 18rem; height:22rem;">
+                <img src="/products/${product.image}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">${product.Name}</h5>
+                    <a href="/user/product/${product.id}"><h5 class="card-title">${product.Name}</h5></a>
                     <p class="card-text">₹ ${product.Price}</p>
                     <button type="button" class="btn btn-danger addToCart" data-productid="${product.id}" data-name="${product.Name}" data-price="${product.Price}">Add To Cart</button>
                 </div>
@@ -85,7 +85,26 @@ $('#laptops').click((event)=>{
 });
 
 $('#gamingconsoles').click((event)=>{
-    $.get('/user/getProductHomepage?productType=Gamingconsoles',render);
+    $.get('/user/getProductHomepage?productType=Consoles',render);
+});
+
+let searchBar = $(".searchBar");
+
+
+searchBar[0].children[1].addEventListener("click", (event) => {
+    event.preventDefault();
+    const searchField = $("#searchField").val();
+    $.get("/user/getProductsSearch?name=" + searchField, render);
+});
+
+
+let filterForm = $("#filterForm");
+
+
+filterForm.submit((event) => {
+    event.preventDefault();
+    $.get("/user/getProductsFiltered?productType=" + categoryButton.text().toLowerCase() + "&" + filterForm.serialize(), render);
+    // genre=Platformer&genre=Shooter&productSubtype=PS1&minPrice=4000&maxPrice=5000
 });
 
 const renderCart=(cartItems)=>{

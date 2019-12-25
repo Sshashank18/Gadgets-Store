@@ -31,11 +31,6 @@ route.post("/login",passport.authenticate("user",{
     failureRedirect:"/login.html"
 }));
 
-route.use(checkUserLogin,(req,res,next)=>{
-    next();
-})
-
-route.use(express.static(__dirname + "/../../private/user"));
 
 route.get("/getProductHomepage",(req,res)=>{
     const productType=req.query.productType;
@@ -116,6 +111,12 @@ route.get("/getUsername",(req,res)=>{
     userdatabaseHandler.getUsername(req.user.id)
     .then(user=>res.send(user));
 });
+
+route.use(checkUserLogin,(req,res,next)=>{
+    next();
+})
+
+route.use(express.static(__dirname + "/../../private/user"));
 
 module.exports={
     route

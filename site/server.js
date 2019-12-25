@@ -1,6 +1,5 @@
 const express=require('express');
 const session=require('express-session');
-const MongoStore=require('connect-mongo')(session);
 
 const userRouter = require('./routes/api/user').route;
 const vendorRouter=require('./routes/api/vendor').route;
@@ -13,17 +12,13 @@ const server=express();
 server.use(express.json());
 server.use(express.urlencoded({extended:true}));
 
-const sessionMiddleware=session({
+server.use(session({
     secret:'GADGETS',
     resave:false,
     saveUninitialized:true,
-    storage:new MongoStore({
-        url:"mongodb://127.0.0.1:5000/sessions"
-    })
-});
+}));
 
-server.use(sessionMiddleware);
-server.use(passport.intialize());
+server.use(passport.initialize());
 server.use(passport.session());
 
 server.use('/products',express.static('./uploads'));
@@ -41,5 +36,5 @@ const PORT =7700;
 database.sync()
     .then(()=>{
         console.log("SQL database synced");
-        server.listen(PORT,()=>console.log("Server Up and Running on 127.0.0.1:"+PORT));
+        server.listen(PORT,()=>console.log("Server Up and Running on http://127.0.0.1:"+PORT));
     });

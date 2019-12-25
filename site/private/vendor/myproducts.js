@@ -13,6 +13,7 @@ const consolebox=$('#consoles');
 
 let deleteProductButtons =$('.deleteProductButton');
 
+
 const render=(box,products)=>{
     box.empty();
     products.map((product)=>{
@@ -27,7 +28,7 @@ const render=(box,products)=>{
             `
         );
     });
-    deleteProductButton=$('.deleteProductButton');
+    deleteProductButtons=$('.deleteProductButton');
 }
 
 $.get('/vendor/products',(products)=>{
