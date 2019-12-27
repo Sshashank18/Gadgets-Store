@@ -12,6 +12,8 @@ let laptops=$('#laptopsd');
 
 let filters = $(".filter");
 
+const cartBtn=$('#cart-btn');
+const cartContainer=$('#cart-container');
 const productbox=$('#product-box');
 const cartTable=$('#cartTable');
 let total=$("#total");
@@ -107,28 +109,46 @@ filterForm.submit((event) => {
     // genre=Platformer&genre=Shooter&productSubtype=PS1&minPrice=4000&maxPrice=5000
 });
 
+
+cartBtn.click((event)=>{
+    event.preventDefault();
+    if(cartContainer[0].getAttribute("value")=="hidden"){
+        cartContainer[0].setAttribute("value","visible");
+        cartContainer[0].removeAttribute("hidden");
+    }
+    else{
+        cartContainer[0].setAttribute("value","hidden");
+        cartContainer[0].setAttribute("hidden","");
+    }    
+});
+
+
 const renderCart=(cartItems)=>{
     cartTable.empty();
+    total.text(0);
+    total[0].setAttribute("value",0);
     cartItems.map(cartItem=>{
         cartTable.append(
             `
                 <tr data-productid="${cartItem.product.id}" data-priceItem="${cartItem.product.Price}">
                     <td>${cartItem.product.Name}</td>
-                    <td>${cartItem.quantity}</td>
+                    <td class="quantity"><button class="incr">+</button>${cartItem.quantity}<button class="decr">-</button></td>
                     <td>${cartItem.product.Price * cartItem.quantity}</td>
                     <td><button type="button" class="btn btn-danger delete">X</button></td>
                 </tr>
             `
-        )
-        total.text(parseInt(total.text())+parseInt(cartItem.product.Price * cartItem.quantity));
+        )  
+        total.text(parseInt(total[0].getAttribute("value"))+parseInt(cartItem.product.Price * cartItem.quantity));
+        total[0].setAttribute("value",parseInt(total[0].getAttribute("value"))+parseInt(cartItem.product.Price * cartItem.quantity));
+
     });
 }
 
-// $.get("/user/getCartItems",renderCart);
+$.get("/user/getCartItems",renderCart);   //As it helps to get same cart on all pages
 
 const addToCart=(cartItem)=>{
     $.post("/user/addCartItem",{
-        productId:cartItem.Product.id
+        productId:cartItem.id
     },()=>$.get("/user/getCartItems",renderCart));
 }
 
@@ -152,3 +172,17 @@ $(document).on("click",".delete",event=>{
         success:()=>$.get("/user/getCartItems",renderCart)
     });
 })
+
+$(document).on("click", ".incr", event => {
+    console.log("IN");
+    $.ajax({
+        url: "/user/updateQuantityIncr",
+        type: "PATCH",
+        data: {
+            productId: event.target.parentNode.parentNode.parentNode.parentNode.getAttribute("data-productid"),
+            quantity: parseInt(event.target.parentNode.innerText.split("")[1])+1
+        },
+        success: () => $.get("/user/getCartItems", renderCart)
+    })
+})
+

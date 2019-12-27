@@ -102,7 +102,7 @@ const Products=database.define("products",{
 });
 
 const Reviews = database.define("reviews", {
-    reviews: {
+    review: {
         type: Sequelize.TEXT,
         allowNull: false 
     },

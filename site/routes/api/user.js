@@ -78,6 +78,12 @@ route.delete('/deleteCartItem',(req,res)=>{
     res.sendStatus(200);
 })
 
+route.patch("/updateQuantityIncr", (req, res) => {
+    userdatabaseHandler.updateQuantityIncr(req.body.productId, req.user.id, req.body.quantity);
+    res.sendStatus(200);
+})
+
+
 route.get('/getOrderDetails',(req,res)=>{
     userdatabaseHandler.getOrderDetails(req.user.id)
     .then(cartItems=>res.send(cartItems));

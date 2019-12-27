@@ -67,7 +67,6 @@ body,html{
 } */
 
 #cart-container{
-    display:none;
     background-color:#005EA6;
     border:2px solid black;
     padding:20px;

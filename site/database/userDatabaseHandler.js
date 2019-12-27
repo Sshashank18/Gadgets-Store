@@ -1,4 +1,4 @@
-const {Users,Products,Vendors,Orders,Cartitems}=require('./database');
+const {Users,Products,Vendors,Orders,Cartitems,Reviews}=require('./database');
 const Op=require('sequelize').Op;
 const bcrypt = require("bcrypt");
 
@@ -49,7 +49,7 @@ const getProductDetails = (productId) => {
         include: [
                     {
                         model:Reviews,
-                        attributes: ["userId", "stars", "reviews"],
+                        attributes: ["userId", "stars", "review"],
                         include: {model: Users, attributes: ["Name"]}   
                     },
                     {model: Vendors, attributes: ["CompanyName"]}
@@ -101,7 +101,7 @@ const getCartItems=(userId)=>{
 }
 
 const deleteCartItem=(productId,userId)=>{
-    CartItems.destroy({
+    Cartitems.destroy({
         where: {
             productId,
             userId
@@ -109,8 +109,21 @@ const deleteCartItem=(productId,userId)=>{
     });
 }
 
+const updateQuantityIncr = (productId, userId, quantity) => {
+    console.log(quantity);
+    Cartitems.update({
+        quantity
+    },
+    {
+        where: {
+            userId,
+            productId
+        }           
+    }).then(()=>console.log("done"));
+}
+
 const getOrderDetails=(userId)=>{
-    return CartItems.findAll({
+    return Cartitems.findAll({
         include:[
             {
                 model:Products,
@@ -149,6 +162,15 @@ const emptyCartList=(userId)=>{
             userId
         }
     })
+}
+
+const addReview = (review, stars, productId, userId) => {
+    Reviews.create({
+        review,
+        stars,
+        productId,
+        userId
+    });
 }
 
 const getOrders=(userId)=>{
@@ -197,5 +219,7 @@ module.exports={
     emptyCartList,
     getOrders,
     checkEmail,
-    getProductDetails
+    getProductDetails,
+    addReview,
+    updateQuantityIncr
 }
