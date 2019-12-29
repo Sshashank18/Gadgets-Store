@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Payment</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <div class="navbar">
+        <img src="images/logo.png" width=50px>
+        <div id="nav-right">
+            <a href="./index.html" style="text-decoration: none">HomePage</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-danger">SignOut</button>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+                <div class="col">
+                    <form method="POST" action="/user/placeOrder" id="orderForm">
+                        <h2>Method</h2>
+                        <br>
+                        <div class="form-group">
+                            <input type="radio" id="creditCard" name="method" value="creditCard" required>
+                            <label for="creditCard">Credit Card</label><br>
+                            <div id="creditDetails">
+                                <label for="creditNumber">Card Number</label>
+                                <input type="text" maxlength="16" class="form-control" id="creditNumber" placeholder="XXXX-XXXX-XXXX-XXXX">
+
+                                <label for="expiry">Expiry Date</label>
+                                <input type="month" class="form-control" id="expiry">
+
+                                <label for="cvv">CVV</label>
+                                <input type="number" class="form-control" id="cvv" placeholder="XXX" maxlength="3">
+                            </div>
+                        </div>
+                        <br><hr>
+                        <div>
+                            <input type="radio" id="cod" name="method" value="cod" required>
+                            <label for="cod">Cash On Delivery</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="col">
+                    <div class="bg-primary p-5" id="cartContent">
+                        <h3 class="text-light">Your Orders</h3>
+                        <div id="cartItems">
+                            <table class="table table-dark" id="cartItems">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Item</th>
+                                        <th scope="col">Quantity</th>
+                                        <th scope="col">Price</th>
+                                        <th scope="col">Vendor</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cartTable">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="checkout">
+                            <h4 class="text-light">Total: <span id="total"> 0 </span></h4>
+                            <button type="submit" class="btn btn-danger" form="orderForm" id="orderSubmit" data-target="#exampleModalCenter">Place Order</button>
+                            <br>
+                            
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+           
+
+            <div id="finalText" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <p>
+                                Thank You For Choosing Us.
+                                Happy Shopping.
+                                :)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="payment.js"></script>
+    
+</body>
+</html>

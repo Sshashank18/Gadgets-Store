@@ -31,11 +31,27 @@ const getProductsHomepage=(productType)=>{
     }).then(products =>products);
 }
 
-const getProductsFiltered=(productType,maxPrice,minPrice)=>{
+const getProductsSearch = (name) => {
+    console.log(name);
+    return Products.findAll({
+        where: {
+            name: {
+                [Op.like]: "%" + name + "%"
+            }
+        }
+    })
+     .then(products => productParser(products));
+}
+
+
+const getProductsFiltered=(productType,productSubtype,maxPrice,minPrice)=>{
     return Products.findAll({
         where:{
             [Op.and]:{
                 productType,
+                productSubtype: {
+                    [Op.like]: "%" + productSubtype + "%"
+                },
                 Price:{
                     [Op.between]:[minPrice,maxPrice]
                 }
@@ -109,8 +125,7 @@ const deleteCartItem=(productId,userId)=>{
     });
 }
 
-const updateQuantityIncr = (productId, userId, quantity) => {
-    console.log(quantity);
+const updateQuantity = (productId, userId, quantity) => {
     Cartitems.update({
         quantity
     },
@@ -119,7 +134,7 @@ const updateQuantityIncr = (productId, userId, quantity) => {
             userId,
             productId
         }           
-    }).then(()=>console.log("done"));
+    })
 }
 
 const getOrderDetails=(userId)=>{
@@ -142,7 +157,7 @@ const getOrderDetails=(userId)=>{
             userId
         }
     })
-    .then(products=>productParser(products));
+    .then(products=>products);
 }
 
 const addToOrder=(time,quantity,method,userId,productId,vendorId)=>{
@@ -181,7 +196,7 @@ const getOrders=(userId)=>{
         attributes:["quantity","time","method","status"],
         include:[
             {
-                model:Vendors,attributes:["CompanyName","CompanyEmail","CompanyMobile"]
+                model:Vendors,attributes:["CompanyName","CompanyEmail","CompanyPhone"]
             },
             {
                 model:Products,attributes:["id","Name","Price","image"]
@@ -191,7 +206,7 @@ const getOrders=(userId)=>{
             }
         ]
     })
-    .then(orders=>productParser(orders));
+    .then(orders=>productsParser(orders));
 }
 
 const checkEmail=(email)=>{
@@ -221,5 +236,6 @@ module.exports={
     checkEmail,
     getProductDetails,
     addReview,
-    updateQuantityIncr
+    updateQuantity,
+    getProductsSearch
 }

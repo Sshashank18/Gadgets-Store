@@ -1,6 +1,7 @@
 const ordersContainers=$('#orders');
 
 $.get('/user/getOrders',orders=>{
+    console.log(orders);
     ordersContainers.empty();
     orders.map(order=>{
         ordersContainers.append(

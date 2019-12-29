@@ -106,7 +106,6 @@ let filterForm = $("#filterForm");
 filterForm.submit((event) => {
     event.preventDefault();
     $.get("/user/getProductsFiltered?productType=" + categoryButton.text().toLowerCase() + "&" + filterForm.serialize(), render);
-    // genre=Platformer&genre=Shooter&productSubtype=PS1&minPrice=4000&maxPrice=5000
 });
 
 
@@ -138,7 +137,8 @@ const renderCart=(cartItems)=>{
                 </tr>
             `
         )  
-        total.text(parseInt(total[0].getAttribute("value"))+parseInt(cartItem.product.Price * cartItem.quantity));
+        let temp=parseInt(total[0].getAttribute("value"))+parseInt(cartItem.product.Price * cartItem.quantity);
+        total.text("₹"+temp);
         total[0].setAttribute("value",parseInt(total[0].getAttribute("value"))+parseInt(cartItem.product.Price * cartItem.quantity));
 
     });
@@ -174,15 +174,37 @@ $(document).on("click",".delete",event=>{
 })
 
 $(document).on("click", ".incr", event => {
-    console.log("IN");
     $.ajax({
-        url: "/user/updateQuantityIncr",
+        url: "/user/updateQuantity",
         type: "PATCH",
         data: {
-            productId: event.target.parentNode.parentNode.parentNode.parentNode.getAttribute("data-productid"),
+            productId: event.target.parentNode.parentNode.getAttribute("data-productid"),
             quantity: parseInt(event.target.parentNode.innerText.split("")[1])+1
         },
         success: () => $.get("/user/getCartItems", renderCart)
     })
 })
 
+$(document).on("click", ".decr", event => {
+    if((parseInt(event.target.parentNode.innerText.split("")[1])-1)==0){
+        $.ajax({                                          
+            url:"/user/deleteCartItem",
+            type:"DELETE",
+            data:{
+                productId:event.target.parentNode.parentNode.getAttribute("data-productid")
+            },
+            success:()=>$.get("/user/getCartItems",renderCart)
+        });
+    }
+    else{
+        $.ajax({
+            url: "/user/updateQuantity",
+            type: "PATCH",
+            data: {
+                productId: event.target.parentNode.parentNode.getAttribute("data-productid"),
+                quantity: parseInt(event.target.parentNode.innerText.split("")[1])-1
+            },
+            success: () => $.get("/user/getCartItems", renderCart)
+        })
+    }
+})

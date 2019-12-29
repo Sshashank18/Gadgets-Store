@@ -40,6 +40,7 @@ route.get("/getProductHomepage",(req,res)=>{
 
 route.get("/getProductSearch",(req,res)=>{
     const name=req.query.name;
+    console.log(name);
     userdatabaseHandler.getProductsSearch(name)
     .then(products=>res.send(products));
 });
@@ -78,8 +79,8 @@ route.delete('/deleteCartItem',(req,res)=>{
     res.sendStatus(200);
 })
 
-route.patch("/updateQuantityIncr", (req, res) => {
-    userdatabaseHandler.updateQuantityIncr(req.body.productId, req.user.id, req.body.quantity);
+route.patch("/updateQuantity", (req, res) => {
+    userdatabaseHandler.updateQuantity(req.body.productId, req.user.id, req.body.quantity);
     res.sendStatus(200);
 })
 

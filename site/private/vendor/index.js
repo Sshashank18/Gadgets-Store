@@ -9,8 +9,8 @@ const renderOrders=()=>{
             if(order.status=="Confirmation Pending")
             {
                 pendingOrders.append(
-                    `
-                    <div class="item-details">
+                `
+                <div class="item-details">
                     <img src="/Products/${order.product.image}">
                     Name:${order.product.Name}
                     <br>

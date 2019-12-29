@@ -1,0 +1,42 @@
+
+.navbar{
+    padding-top:7px;
+    background-color: honeydew;
+    height:62px;
+}
+
+#nav-right{
+    padding-top:3px;
+    float: right;
+}
+
+.cartList {
+    height: 500px;
+}
+
+#cartContent {
+    border-radius: 2%;
+    height: 500px;
+    width: 500px;
+
+    background-color: #005EA6;
+    padding: 30px;
+}
+
+#cartItems {
+    max-height: 300px !important;
+    overflow-y: auto !important;
+}
+
+.checkout {
+    position: absolute;
+    bottom: 50px;
+}
+
+input[type=number] {
+    -webkit-text-security: disc;
+}
+
+#creditDetails {
+    margin-left: 5%;
+}
