@@ -10,6 +10,7 @@ const earphonebox=$('#earphones');
 const camerabox=$('#cameras');
 const laptopbox=$('#laptops');
 const consolebox=$('#consoles');
+const pendrivesbox=$('#pendrives');
 
 let deleteProductButtons =$('.deleteProductButton');
 
@@ -39,6 +40,8 @@ $.get('/vendor/products',(products)=>{
             cameras.push(product);
         else if(product.productType=="Consoles")
             consoles.push(product);
+        else if(product.productType=="Pendrives")
+            pendrives.push(product);
         else if(product.productType=="Laptops")
             laptops.push(product);
         else    
@@ -50,6 +53,7 @@ $.get('/vendor/products',(products)=>{
     render(laptopbox,laptops);
     render(camerabox,cameras);
     render(consolebox,consoles);
+    render(pendrivesbox,pendrives);
 
     deleteProductButtons.each((index)=>{
         deleteProductButtons[index].addEventListener("click",(event)=>{

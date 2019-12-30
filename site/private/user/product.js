@@ -34,8 +34,9 @@ $.get('/user/getProductDetails/'+id,(productDetails)=>{
             <div><u>Name: </u><h3>${productDetails.Name}</h3></div>
             <div><u>Price: </u><h4>${productDetails.Price}</h4></div>
             <div><u>Vendor: </u><h4>${productDetails.vendor.CompanyName}</h4></div>
-    
-            <button type="button" class="btn btn-danger" id="addToCart">Add To Cart</button>
+            <button type="button" class="btn btn-danger" id="addToCart" data-productid="${id}" data-name="${productDetails.Name}" data-price="${productDetails.Price}">
+            Add To Cart
+            </button>
             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModalCenter">
                 Add Review
             </button>
@@ -50,6 +51,23 @@ $.get('/user/getProductDetails/'+id,(productDetails)=>{
         `
     )
 });
+
+const addToCart=(cartItem)=>{
+    $.post("/user/addCartItem",{
+        productId:cartItem.id
+    },()=>window.location="/user");
+}
+
+$(document).on("click","#addToCart",event=>{
+    const cartItem={
+        id:event.target.getAttribute("data-productid"),
+        name:event.target.getAttribute("data-name"),
+        price:event.target.getAttribute("data-price"),
+        quantity:1,
+    }
+    addToCart(cartItem);
+});
+
 
 const submitReviewButton=$('#submitReview');
 const submitReviewForm=$('#submitReviewForm');

@@ -1,18 +1,17 @@
 const ordersContainers=$('#orders');
 
 $.get('/user/getOrders',orders=>{
-    console.log(orders);
     ordersContainers.empty();
     orders.map(order=>{
         ordersContainers.append(
             `
-            <div class="order text-light">
+            <div class="order">
                     <div class="time ml-3"><b>Ordered Placed: ${order.time}</b></div>
                     <div class="name ml-3">Signed By: ${order.user.Name}</div>
                     <div class="container mt-3">
                         <div class="row">
                             <div class="col-6">
-                                <img src="/products/${order.product.image}" class="orderImage">
+                                <img src="/products/${order.product.image}" class="orderImage" width=200px height=200px>
                             </div>
                             <div class="col-3">
                                 <div class="orderName"><a href="/user/product.html?productId=${order.product.id}"><b>${order.product.Name}</b></a></div>
@@ -23,6 +22,7 @@ $.get('/user/getOrders',orders=>{
                                 <div class="vendorName">Sold By: ${order.vendor.CompanyName}</div>
                                 <div class="vendorName">Vendor Mobile: ${order.vendor.CompanyMobile}</div>
                                 <div class="vendorName">Vendor Email Address: ${order.vendor.CompanyEmail}</div>
+                                <div class="vendorName">Status: <b>${order.status}</b></div>
                                 
                                 
                             </div>
@@ -32,6 +32,7 @@ $.get('/user/getOrders',orders=>{
                         </div>
                     </div>
                 </div>
+            <hr>
             `
         )
     })

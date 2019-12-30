@@ -26,10 +26,13 @@ body,html{
     background-color: rgb(27, 27, 27);
     color:bisque;
     width:500px;
-    height:80vh;
+    height:79vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     padding:30px 50px 50px 50px;
     border-radius: 5%;
 }
+
 
 .item-details{
     background-color: white;

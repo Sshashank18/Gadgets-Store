@@ -59,7 +59,7 @@ const render=(products)=>{
     products.map(product=>{
         productbox.append(`
             <div class="card" style="width: 18rem; height:22rem;">
-                <img src="/products/${product.image}" class="card-img-top" alt="...">
+                <img src="/products/${product.image}" class="card-img-top" alt="..." width=150px height=200px>
                 <div class="card-body">
                     <a href="/user/product/${product.id}"><h5 class="card-title">${product.Name}</h5></a>
                     <p class="card-text">₹ ${product.Price}</p>

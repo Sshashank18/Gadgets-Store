@@ -11,12 +11,12 @@ const renderOrders=()=>{
                 pendingOrders.append(
                 `
                 <div class="item-details">
-                    <img src="/Products/${order.product.image}">
+                    <img src="/Products/${order.product.image}" width=150px height=175px>
                     Name:${order.product.Name}
                     <br>
                     Price:${order.product.Price}
                     <br>
-                    Quantity:${order.product.quantity}
+                    Quantity:${order.quantity}
                     <br>
                     Total:${order.quantity * order.product.Price}
                     <hr>
@@ -42,12 +42,12 @@ const renderOrders=()=>{
                 dispatchedOrders.append(
                     `
                     <div class="item-details">
-                    <img src="/Products/${order.product.image}">
+                    <img src="/Products/${order.product.image}" width=150px height=175px>
                     Name:${order.product.Name}
                     <br>
                     Price:${order.product.Price}
                     <br>
-                    Quantity:${order.product.quantity}
+                    Quantity:${order.quantity}
                     <br>
                     Total:${order.quantity * order.product.Price}
                     <hr>
@@ -62,6 +62,7 @@ const renderOrders=()=>{
                     <br>
                     Time: ${order.time}
                 </div>
+                <hr>
                     `
                 );
             }
@@ -78,7 +79,7 @@ $(document).on("click",".orderAccept",event=>{
         },
         type:"PATCH",
         success:()=>{
-            event.target.parentNode.parentNode.parentNode.remove();
+            event.target.parentNode.remove();
             renderOrders();
         }
     });
@@ -92,7 +93,7 @@ $(document).on("click",".orderDecline",event=>{
         },
         type:"PATCH",
         success:()=>{
-            event.target.parentNode.parentNode.parentNode.remove();
+            event.target.parentNode.remove();
             renderOrders();
         }
     });

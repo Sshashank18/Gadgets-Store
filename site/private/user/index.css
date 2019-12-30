@@ -9,7 +9,10 @@ body,html{
 .navbar{
     padding-top:7px;
     background-color: honeydew;
+    z-index: 1;
     height:57px;
+    position: sticky;
+    top:0px;
 }
 
 #searchField{
@@ -37,7 +40,10 @@ body,html{
 
 .filter-bar{
     float:left;
+    padding-left:10px;
     height:91.3vh;
+    position:fixed;
+    top:57px;
     width:200px;
     background-color:rgba(24, 22, 29, 0.87);
     color:white;
@@ -46,6 +52,8 @@ body,html{
 .container{
     position: relative;
     padding-top:25px;
+    top:25px;
+    left:100px;
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
