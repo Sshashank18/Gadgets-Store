@@ -54,7 +54,7 @@ For sqlite, To create a database
      style="float: left; margin-right: 10px;"/>
 
 ### User Homepage
-<img src="https://github.com/Bhaikko/GamerParadise/blob/master/Screenshots/UserHomepage.png"
+<img src="https://github.com/Sshashank18/Gadgets-Store/blob/master/Screenshots/UserHomepage.png"
      style="float: left; margin-right: 10px;"/>
      
 ### Products
@@ -66,23 +66,23 @@ For sqlite, To create a database
      style="float: left; margin-right: 10px;"/>
      
 ### User Cart
-<img src="https://github.com/Bhaikko/GamerParadise/blob/master/Screenshots/Cart.png"
+<img src="https://github.com/Sshashank18/Gadgets-Store/blob/master/Screenshots/Cart.png"
      style="float: left; margin-right: 10px;"/>
      
 ### User Orders
-<img src="https://github.com/Bhaikko/GamerParadise/blob/master/Screenshots/Orders.png"
+<img src="https://github.com/Sshashank18/Gadgets-Store/blob/master/Screenshots/Orders.png"
      style="float: left; margin-right: 10px;"/>
 
 ### Vendor Dashboard
-<img src="https://github.com/Bhaikko/GamerParadise/blob/master/Screenshots/VendorHomepage.png"
+<img src="https://github.com/Sshashank18/Gadgets-Store/blob/master/Screenshots/VendorHomepage.png"
      style="float: left; margin-right: 10px;"/>
      
 ### Vendor Products
-<img src="https://github.com/Bhaikko/GamerParadise/blob/master/Screenshots/VendorProducts.png"
+<img src="https://github.com/Sshashank18/Gadgets-Store/blob/master/Screenshots/VendorProducts.png"
      style="float: left; margin-right: 10px;"/>
 
 ### Vendor AddItem
-<img src="https://github.com/Bhaikko/GamerParadise/blob/master/Screenshots/vendorAddItem.png"
+<img src="https://github.com/Sshashank18/Gadgets-Store/blob/master/Screenshots/vendorAddItem.png"
      style="float: left; margin-right: 10px;"/>
 
 
