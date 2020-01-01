@@ -1,6 +1,7 @@
 const cartTable = $("#cartTable");
 const total = $("#total");
 
+let temp=0;
 $.get("/user/getOrderDetails", orders => {
     orders.map(order => {
         cartTable.append(
@@ -8,16 +9,16 @@ $.get("/user/getOrderDetails", orders => {
                 <tr>
                     <td>${order.product.Name}</td>
                     <td>${order.quantity}</td>
-                    <td>${order.product.Price}</td>
+                    <td>${order.product.Price*order.quantity}</td>
                     <td>${order.product.vendor.CompanyName}</td>
                 </tr>
                 
             `
         );
-        let temp=parseInt(total.text()) + parseInt(parseInt(order.product.Price) * parseInt(order.quantity));
-        total.text("₹"+temp);
+        temp=temp+parseInt(total.text()) + parseInt(parseInt(order.product.Price) * parseInt(order.quantity));
+        // total.text(temp);
     });
-
+    total.text("₹"+temp);
 });
 
 let orderForm = $("#orderForm");

@@ -10,7 +10,7 @@ const vendordatabaseHandler=require('./../../database/vendorDatabaseHandler');
 const checkVendorLogin=(req,res,next)=>{
     if(!req.user || !req.user.get().CompanyName)
     {
-        res.redirect("./login.html");
+        res.redirect("/login.html");
         return;
     }
     next();

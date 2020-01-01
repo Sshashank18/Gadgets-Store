@@ -6,13 +6,13 @@ const bcrypt=require('bcrypt');
 passport.use("user",new LocalStrategy((username,password,done)=>{
     Users.findOne({
         where:{
-            Email:username
+            Email:username,
         }
     })
     .then(user=>{
         if(!user)
             return done(null,false,{message:"No User Exist"});
-        else if (bcrypt.compare(password,user.password,(err,res)=>res))
+        else if (bcrypt.compare(password,user.password,(err,res)=>res)==false)
             return done(null,false,{message:"Wrong Username or Password"});
         else 
             done(null,user);

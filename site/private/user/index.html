@@ -18,7 +18,7 @@
     <div class="navbar">
         <img src="images/logo.png" width=50px>
         <form class="form-inline mr-sm-2 searchBar">
-            <input class="form-control mr-lg-2" type="search" placeholder="Search..." aria-label="Search" id="searchField">
+            <input class="form-control mr-lg-2"  placeholder="Search..." aria-label="Search" id="searchField">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
         </form>
        
@@ -47,7 +47,7 @@
                 </div><br>
                 <button class="btn btn-danger" onclick="window.location='/user/payment.html'">Checkout</button>
             </div>
-            <button class="btn btn-danger">SignOut</button>
+            <button class="btn btn-danger" onclick="window.location.href='/logout';">SignOut</button>
         </div>
     </div>
 
@@ -169,12 +169,16 @@
             <br><br>
         <h4>PRICE RANGE</h4>
         Min Range  &nbsp;:₹
-        <input class="price-input" type="number"><br><br>
+        <input class="price-input" name="minPrice" type="number"><br><br>
         Max Range :₹
-        <input class="price-input" type="number"><br><br>
+        <input class="price-input" name="maxPrice" type="number"><br><br>
         <button type="submit" class="btn btn-success" id="filterButton">Filter</button>
     </form>
 
+    <div id="bttn" hidden>
+            <button class="btn btn-secondary" onclick="window.location.href='index.html';">Back</button>
+            <br>
+    </div>
 
     <div class="container" id="product-box">
         <div class="card" id="mobiles"style="width: 18rem;">

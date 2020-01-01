@@ -32,7 +32,6 @@ const getProductsHomepage=(productType)=>{
 }
 
 const getProductsSearch = (name) => {
-    console.log(name);
     return Products.findAll({
         where: {
             name: {
@@ -40,14 +39,14 @@ const getProductsSearch = (name) => {
             }
         }
     })
-     .then(products => productParser(products));
+     .then(products => productsParser(products));
 }
 
 
 const getProductsFiltered=(productType,productSubtype,maxPrice,minPrice)=>{
     return Products.findAll({
         where:{
-            [Op.and]:{
+            [Op.or]:{
                 productType,
                 productSubtype: {
                     [Op.like]: "%" + productSubtype + "%"

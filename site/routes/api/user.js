@@ -8,7 +8,7 @@ const userdatabaseHandler=require('./../../database/userDatabaseHandler');
 const checkUserLogin=(req,res,next)=>{
     if(!req.user || !req.user.get().Name)
     {
-        res.redirect("./login.html");
+        res.redirect("/login.html");
         return;
     }
     next();
@@ -38,15 +38,14 @@ route.get("/getProductHomepage",(req,res)=>{
     .then(products=>res.send(products));
 });
 
-route.get("/getProductSearch",(req,res)=>{
+route.get("/getProductsSearch",(req,res)=>{
     const name=req.query.name;
-    console.log(name);
     userdatabaseHandler.getProductsSearch(name)
     .then(products=>res.send(products));
 });
 
-route.get("/getProductFiltered",(req,res)=>{
-    userdatabaseHandler.getProductsFiltered(req.query.productType || "",req.query.productSubtype || "",req.query.maxPrice || "999999999", req.query.minPrice || "0")
+route.get("/getProductsFiltered",(req,res)=>{
+    userdatabaseHandler.getProductsFiltered(req.query.productType || "",req.query.productSubtype || "", req.query.minPrice || "0",req.query.maxPrice || "999999999")
     .then(products=>res.send(products));
 });
 

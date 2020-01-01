@@ -38,6 +38,12 @@ body,html{
     border: 2px solid #0099CC;
 }
 
+#bttn{
+    position: relative;
+    left:220px;
+    top:15px;
+}
+
 .filter-bar{
     float:left;
     padding-left:10px;

@@ -53,9 +53,11 @@ earphones.click(()=>{
     categoryButton.text("Earphones");
 });
 
+const bttn=$('#bttn');
 
 const render=(products)=>{
     productbox.empty();
+    bttn[0].removeAttribute('hidden');
     products.map(product=>{
         productbox.append(`
             <div class="card" style="width: 18rem; height:22rem;">
@@ -69,6 +71,7 @@ const render=(products)=>{
         `)
     })
 }
+
 
 $('#mobiles').click((event)=>{
     $.get('/user/getProductHomepage?productType=Mobiles',render);
@@ -105,7 +108,7 @@ let filterForm = $("#filterForm");
 
 filterForm.submit((event) => {
     event.preventDefault();
-    $.get("/user/getProductsFiltered?productType=" + categoryButton.text().toLowerCase() + "&" + filterForm.serialize(), render);
+    $.get("/user/getProductsFiltered?productType=" + categoryButton.text() + "&" + filterForm.serialize(), render);
 });
 
 
@@ -131,7 +134,7 @@ const renderCart=(cartItems)=>{
             `
                 <tr data-productid="${cartItem.product.id}" data-priceItem="${cartItem.product.Price}">
                     <td>${cartItem.product.Name}</td>
-                    <td class="quantity"><button class="incr">+</button>${cartItem.quantity}<button class="decr">-</button></td>
+                    <td class="quantity"><button class="btn btn-secondary incr">+</button>${cartItem.quantity}<button class="btn btn-secondary decr">-</button></td>
                     <td>${cartItem.product.Price * cartItem.quantity}</td>
                     <td><button type="button" class="btn btn-danger delete">X</button></td>
                 </tr>
